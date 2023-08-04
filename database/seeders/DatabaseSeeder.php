@@ -7,14 +7,14 @@ use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         $this->call([
             UserSeeder::class,
-            TypeSeeder::class
+            TypeSeeder::class,
+            CompanySeeder::class,
+            CourseSeeder::class,
+//            StatusSeeder::class,
         ]);
     }
 }

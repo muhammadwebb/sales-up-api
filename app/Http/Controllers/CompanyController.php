@@ -1,12 +1,11 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\Http\Controllers;
 
-use {{ rootNamespace }}Http\Controllers\Controller;
 use App\Traits\JsonRespondController;
 use Illuminate\Http\Request;
 
-class {{ class }} extends Controller
+class CompanyController extends Controller
 {
     use JsonRespondController;
 

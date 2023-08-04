@@ -12,7 +12,7 @@ class UserSeeder extends Seeder
     {
         User::create([
             'name' => 'admin',
-            'phone' => '+99899111111',
+            'phone' => 998991111111,
             'password' => '123',
         ]);
     }

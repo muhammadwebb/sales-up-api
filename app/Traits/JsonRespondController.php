@@ -96,6 +96,16 @@ trait JsonRespondController
         ]);
     }
 
+    public function respondObjectUpdated(int $id): JsonResponse
+    {
+        return $this->respond([
+            'data' => [
+                'updated' => true,
+                'id' => $id,
+            ]
+        ]);
+    }
+
     public function respondError($error = '', $errors = [], $code = 422): JsonResponse
     {
         $this->setHTTPStatusCode($code);

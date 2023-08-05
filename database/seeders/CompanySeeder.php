@@ -19,7 +19,7 @@ class CompanySeeder extends Seeder
         ]);
 
         Company::create([
-            'user_id' => 1,
+            'user_id' => 2,
             'title' => 'Company 2',
             'description' => 'First School Company',
             'phone' => 99899333333,
@@ -27,7 +27,7 @@ class CompanySeeder extends Seeder
         ]);
 
         Company::create([
-            'user_id' => 1,
+            'user_id' => 3,
             'title' => 'Company 3',
             'description' => 'First School Company',
             'phone' => 99899444444,

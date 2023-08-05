@@ -19,6 +19,7 @@ class LoginService extends BaseService
 
     /**
      * @throws ValidationException
+     * @throws \Exception
      */
     public function execute(array $data): string
     {

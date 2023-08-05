@@ -18,6 +18,7 @@ class Course extends Model
         'company_id',
         'title',
         'description',
+        'price',
         'clicked'
     ];
 

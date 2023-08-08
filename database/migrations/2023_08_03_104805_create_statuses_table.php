@@ -10,8 +10,8 @@ return new class extends Migration
     {
         Schema::create('statuses', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_id')->default(null)->constrained()->cascadeOnDelete();
-            $table->string('title');
+            $table->foreignId('company_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->string('title')->unique();
             $table->timestamps();
         });
     }

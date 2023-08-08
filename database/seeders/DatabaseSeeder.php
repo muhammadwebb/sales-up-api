@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
             TypeSeeder::class,
             CompanySeeder::class,
             CourseSeeder::class,
-//            StatusSeeder::class,
+            StatusSeeder::class,
         ]);
     }
 }

@@ -75,4 +75,21 @@ class CompanyController extends Controller
             return $this->respondValidatorFailed($exception->validator);
         }
     }
+
+
+    /**
+     * @throws Exception
+     */
+    public function isActive(Request $request)
+    {
+        $company = Company::find($request->company_id);
+
+        if ($company->user_id == auth()->id()){
+            $company->update(['is_current_active' => true]);
+            Company::where('user_id', auth()->id())
+                    ->whereNotIn('id', [$company->id])
+                    ->update(['is_current_active' => false]);
+        }
+        return $this->respondSuccess();
+    }
 }

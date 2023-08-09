@@ -24,7 +24,7 @@ class DeleteCourse extends BaseService
     public function execute(array $data): bool
     {
         $this->validate($data);
-        $company = Company::where('user_id', auth()->id())->first();
+        $company = auth()->user()->companies->where('is_current_active', true)->first();
         $course = Course::find($data['id']);
 
         if ($course->company_id == $company->id){

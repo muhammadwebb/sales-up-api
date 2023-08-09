@@ -23,7 +23,7 @@ class DeleteSource extends BaseService
     public function execute(array $data): bool
     {
         $this->validate($data);
-        $company = Company::where('is_current_active', true)->first();
+        $company = auth()->user()->companies->where('is_current_active', true)->first();
         $source = Source::find($data['id']);
         if ($source->company_id == $company->id){
             $source->delete();

@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Link\LinkResource;
+use App\Models\Link;
+use App\Services\Link\StoreLink;
 use App\Traits\JsonRespondController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class LinkController extends Controller
 {
@@ -11,13 +16,19 @@ class LinkController extends Controller
 
     public function index()
     {
-        //
+        $link = Link::all();
+        return LinkResource::collection($link);
     }
 
 
     public function store(Request $request)
     {
-        //
+        try {
+            app(StoreLink::class)->execute(['source_id' => $request->source_id, 'price' => $request->price]);
+            return $this->respondSuccess();
+        } catch (ValidationException $exception){
+            return $this->respondValidatorFailed($exception->validator);
+        }
     }
 
 

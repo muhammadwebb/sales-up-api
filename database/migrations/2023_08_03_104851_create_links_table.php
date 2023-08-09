@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('url');
             $table->string('code')->unique();
             $table->string('price');
+            $table->bigInteger('clicked')->default(0);
             $table->timestamps();
         });
     }

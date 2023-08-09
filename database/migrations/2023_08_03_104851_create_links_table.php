@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('source_id')->constrained();
             $table->string('url');
-            $table->string('code');
+            $table->string('code')->unique();
             $table->string('price');
             $table->timestamps();
         });

@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Bot\BotResource;
+use App\Models\Bot;
+use App\Services\Bot\DeleteBot;
 use App\Services\Bot\StoreBot;
 use App\Traits\JsonRespondController;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
 
@@ -13,7 +17,8 @@ class BotController extends Controller
 
     public function index()
     {
-        //
+        $bot = Bot::all();
+        return BotResource::collection($bot);
     }
 
 
@@ -42,6 +47,14 @@ class BotController extends Controller
 
     public function destroy(string $id)
     {
-        //
+        try {
+            app(DeleteBot::class)->execute(['id' => $id]);
+            return $this->respondObjectDeleted($id);
+        } catch (ValidationException $exception){
+            return $this->respondValidatorFailed($exception->validator);
+        } catch (Exception $exception){
+            $this->setHTTPStatusCode($exception->getCode());
+            return $this->respondWithError($exception->getMessage());
+        }
     }
 }

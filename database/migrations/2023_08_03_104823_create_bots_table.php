@@ -14,8 +14,8 @@ return new class extends Migration
             $table->string('token');
             $table->string('chat_id');
             $table->string('username');
-            $table->text('filename');
             $table->string('contact');
+            $table->text('filename');
             $table->timestamps();
         });
     }

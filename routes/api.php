@@ -4,6 +4,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BotController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LinkController;
 use App\Http\Controllers\MarketingController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\StatusController;
@@ -22,6 +23,7 @@ Route::middleware(['auth:sanctum'])->group(function (){
         'statuses' => StatusController::class,
         'bots' => BotController::class,
         'marketing' => MarketingController::class,
-        'sources' => SourceController::class
+        'sources' => SourceController::class,
+        'links' => LinkController::class
     ]);
 });

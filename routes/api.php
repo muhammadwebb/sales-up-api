@@ -4,8 +4,11 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\BotController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\LinkController;
 use App\Http\Controllers\MarketingController;
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\SourceController;
 use App\Http\Controllers\StatusController;
 use Illuminate\Http\Request;
@@ -17,6 +20,8 @@ Route::get('/getme', [AuthController::class, 'getme'])->middleware(['auth:sanctu
 
 Route::middleware(['auth:sanctum'])->group(function (){
     Route::post('is-active', [CompanyController::class, 'isActive']);
+    Route::post('messages-all', [MessageController::class, 'send_all']);
+
     Route::apiResources([
         'companies' => CompanyController::class,
         'courses' => CourseController::class,
@@ -24,6 +29,9 @@ Route::middleware(['auth:sanctum'])->group(function (){
         'bots' => BotController::class,
         'marketing' => MarketingController::class,
         'sources' => SourceController::class,
-        'links' => LinkController::class
+        'links' => LinkController::class,
+        'leads' => LeadController::class,
+        'orders' => OrderController::class,
+        'messages' => MessageController::class
     ]);
 });

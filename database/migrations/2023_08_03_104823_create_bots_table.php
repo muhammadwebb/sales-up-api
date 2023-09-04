@@ -11,9 +11,9 @@ return new class extends Migration
         Schema::create('bots', function (Blueprint $table) {
             $table->id();
             $table->foreignId('company_id')->constrained()->cascadeOnDelete();
-            $table->string('token');
-            $table->string('chat_id');
-            $table->string('username');
+            $table->string('token')->unique();
+            $table->string('chat_id')->unique();
+            $table->string('username')->unique();
             $table->string('contact');
             $table->text('filename');
             $table->timestamps();

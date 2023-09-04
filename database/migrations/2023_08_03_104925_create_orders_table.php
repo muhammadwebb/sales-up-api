@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('course_id')->constrained();
             $table->foreignId('lead_id')->constrained();
-            $table->string('status');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

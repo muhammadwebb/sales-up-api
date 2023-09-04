@@ -11,7 +11,8 @@ class UserResource extends JsonResource
     {
         return [
             'name' => $this->name,
-            'phone' => $this->phone
+            'phone' => $this->phone,
+            'companies' => UserCompaniesResource::collection($this->companies)
         ];
     }
 }

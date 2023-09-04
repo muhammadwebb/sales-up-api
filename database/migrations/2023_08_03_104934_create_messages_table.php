@@ -12,7 +12,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('lead_id')->constrained();
             $table->text('text');
-            $table->string('message_id');
+            $table->string('message_id')->nullable();
             $table->boolean('is_answer')->default(false);
             $table->timestamps();
         });

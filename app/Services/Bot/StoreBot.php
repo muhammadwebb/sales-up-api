@@ -26,7 +26,7 @@ class StoreBot extends BaseService
         $this->validate($data);
         list($chat_id) = explode(":", $data['token']);
         list($https, $file_name) = explode("//t.me/", $data['username']);
-        $company = Company::where('is_current_active', true)->first();
+        $company = Company::where('user_id', auth()->id())->first();
         \File::copy('telegram/sales-up-bot.php', 'telegram/'.$file_name.'.php');
 
         $filename = 'telegram/'.$file_name.'.php';
